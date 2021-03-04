@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  background-color: black;
+  height: 100%;
+}
+
+.header {
+  padding-top: 20px;
+  text-align: center;
+  &__logo {
+    width: 300px;
+    height: 100px;
+  }
+}
+
+.main {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__form {
+    &--input {
+      color: white;
+      width: 370px;
+      height: 30px;
+      background-color: black;
+      border: 1px solid rgb(8, 226, 215);
+    }
+  }
+  &__cards {
+    padding-top: 30px;
+    text-decoration: none;
+    .list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 242px 242px 242px 242px 242px;
+      list-style: none;
+      &__element {
+        margin: 0 15px 15px 0;
+        background: rgb(19, 190, 202);
+        &--image {
+          width: 180px;
+          height: 180px;
+        }
+        &--name {
+          color: white;
+          font-size: 13px;
+          padding: 3px 0 2px 10px;
+          text-decoration: none;
+        }
+        &--text {
+          color: white;
+          font-size: 12px;
+          padding: 3px 0 6px 10px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.route-link {
+  text-decoration: none;
+}
