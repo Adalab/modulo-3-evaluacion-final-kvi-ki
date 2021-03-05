@@ -18,20 +18,10 @@ function App() {
   }, []);
 
   const handleFilter = (searchField) => {
-    if (searchField.key === 'name') {
-      return (setName(searchField.value));
-    }
-
-    else if (searchField.key !== 'name') {
-      return (
-        <alert>
-          <section className="card">
-            <div className="card__message">
-              There is no character that matches the word XXX</div>
-          </section>
-        </alert>)
-    }
+    if (searchField.key === 'name')
+      return setName(searchField.value);
   }
+
   const FilterCharacters = characters.filter(character => {
     return character.name.toUpperCase().includes(name.toUpperCase())
   })
@@ -51,14 +41,11 @@ function App() {
           <Header />
           <main className="main">
             <Filter handleFilter={handleFilter} />
-            <CharacterList characters={FilterCharacters} />
+            <CharacterList characters={FilterCharacters} name={name} character={characters} />
           </main>
         </div>
       </Route>
-
       <Route path="/character/:id" render={renderCharacterDetails} />
-
-
     </Switch >
   );
 }
