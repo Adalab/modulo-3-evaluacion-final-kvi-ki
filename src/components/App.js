@@ -18,17 +18,26 @@ function App() {
   }, []);
 
   const handleFilter = (searchField) => {
-    console.log(searchField)
-    if (searchField.key === 'name')
-      setName(searchField.value);
-  }
+    if (searchField.key === 'name') {
+      return (setName(searchField.value));
+    }
 
+    else if (searchField.key !== 'name') {
+      return (
+        <alert>
+          <section className="card">
+            <div className="card__message">
+              There is no character that matches the word XXX</div>
+          </section>
+        </alert>)
+    }
+  }
   const FilterCharacters = characters.filter(character => {
     return character.name.toUpperCase().includes(name.toUpperCase())
   })
 
   const renderCharacterDetails = props => {
-    const id = props.match.params.id;
+    const id = parseInt(props.match.params.id);
     const selectCharacter = characters.find(character => {
       return character.id === id;
     })
@@ -36,16 +45,21 @@ function App() {
   }
 
   return (
-    <div className="page">
-      <Header />
-      <main className="main">
-        <Filter handleFilter={handleFilter} />
-        <CharacterList characters={FilterCharacters} />
-        <Switch>
-          <Route path="/character/:id" render={renderCharacterDetails} />
-        </Switch>
-      </main>
-    </div>
+    <Switch>
+      <Route exact path="/">
+        <div className="page">
+          <Header />
+          <main className="main">
+            <Filter handleFilter={handleFilter} />
+            <CharacterList characters={FilterCharacters} />
+          </main>
+        </div>
+      </Route>
+
+      <Route path="/character/:id" render={renderCharacterDetails} />
+
+
+    </Switch >
   );
 }
 
