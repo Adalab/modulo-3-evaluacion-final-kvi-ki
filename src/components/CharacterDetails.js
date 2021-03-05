@@ -7,7 +7,7 @@ const CharacterDetails = props => {
     let result = episodesList.length;
 
     return (
-        <div className="page">
+        <div className="cardPage">
             <Header />
             <main className="cardMain">
                 <Link to="/">

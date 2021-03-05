@@ -7,7 +7,6 @@ import Filter from './Filter';
 import Header from './Header';
 import getDataFromApi from '../services/getDataFromApi';
 
-
 function App() {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState('');
@@ -40,8 +39,8 @@ function App() {
         <div className="page">
           <Header />
           <main className="main">
-            <Filter handleFilter={handleFilter} />
-            <CharacterList characters={FilterCharacters} name={name} character={characters} />
+            <Filter handleFilter={handleFilter} name={name} />
+            <CharacterList characters={FilterCharacters} />
           </main>
         </div>
       </Route>

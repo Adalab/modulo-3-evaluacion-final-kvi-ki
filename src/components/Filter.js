@@ -9,7 +9,7 @@ const Filter = props => {
 
     return (
         <form className="main__form" onSubmit={handleForm}>
-            <input className="main__form--input" onChange={handleInput} />
+            <input className="main__form--input" onChange={handleInput} type="text" value={props.name} />
         </form>
     )
 

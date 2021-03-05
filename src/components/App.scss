@@ -61,6 +61,11 @@
   }
 }
 
+.cardPage {
+  background-color: black;
+  height: 100vh;
+}
+
 .cardMain {
   padding-top: 40px;
   display: flex;
@@ -75,6 +80,7 @@
 }
 
 .card {
+  margin-top: 10px;
   width: 450px;
   height: 230px;
   background: rgb(19, 190, 202);
@@ -84,6 +90,8 @@
     text-transform: uppercase;
     align-self: center;
     font-size: 24px;
+    text-align: center;
+    color: white;
   }
   &__image {
     width: 180px;
