@@ -8,7 +8,7 @@ const CharacterList = props => {
         return (
             <section className="card">
                 <div className="card__message">
-                    There is no character that matches this name!</div>
+                    There is no character that matches "{props.name}"!</div>
             </section>
         )
     }

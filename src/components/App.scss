@@ -1,3 +1,17 @@
+@mixin text($fontFamily, $fontSize, $fontColor) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $fontColor;
+  @content;
+}
+
+@mixin display() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @content;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -19,10 +33,9 @@
 }
 
 .main {
+  @include display() {
+  }
   padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   &__form {
     &--input {
       color: white;
@@ -47,14 +60,12 @@
           height: 180px;
         }
         &--name {
-          color: white;
-          font-size: 13px;
+          @include text("Lato", 13px, white);
           padding: 3px 0 2px 10px;
         }
         &--text {
-          color: white;
-          font-size: 12px;
-          padding: 3px 0 6px 10px;
+          @include text("Lato", 12px, white);
+          padding: 0 0 6px 10px;
         }
       }
     }
@@ -68,15 +79,18 @@
 
 .cardMain {
   padding-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include display() {
+  }
 }
 
 .link {
-  font-size: 13px;
-  color: rgb(224, 211, 211);
-  margin: 0 0 15px 400px;
+  @include text("Lato", 13px, rgb(224, 211, 211));
+  margin: 0 0 15px 390px;
+  &__arrow {
+    color: rgb(224, 211, 211);
+    width: 16px;
+    height: 18px;
+  }
 }
 
 .card {
@@ -89,9 +103,8 @@
   &__message {
     text-transform: uppercase;
     align-self: center;
-    font-size: 24px;
     text-align: center;
-    color: white;
+    @include text("Lato", 24px, rgb(15, 155, 96));
   }
   &__image {
     width: 180px;
@@ -103,14 +116,12 @@
     flex-direction: column;
     justify-content: center;
     &--name {
-      color: white;
-      font-size: 15px;
+      @include text("Lato", 15px, white);
     }
     &--list {
       padding-left: 0;
-      color: white;
-      font-size: 12px;
       text-align: left;
+      @include text("Lato", 12px, white);
       .list__point {
         list-style: none;
       }

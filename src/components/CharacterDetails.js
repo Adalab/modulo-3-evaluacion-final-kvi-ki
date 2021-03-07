@@ -11,7 +11,7 @@ const CharacterDetails = props => {
             <Header />
             <main className="cardMain">
                 <Link to="/">
-                    <span className="link">Go Back</span>
+                    <span className="link"><i className="fas fa-chevron-left link__arrow"></i>Go Back</span>
                 </Link>
                 <section className="card">
                     <img src={props.character.image} className="card__image" />

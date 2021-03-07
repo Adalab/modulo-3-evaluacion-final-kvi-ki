@@ -17,13 +17,15 @@ function App() {
   }, []);
 
   const handleFilter = (searchField) => {
-    if (searchField.key === 'name')
+    if (searchField.key === 'name') {
       return setName(searchField.value);
+    }
   }
 
-  const FilterCharacters = characters.filter(character => {
-    return character.name.toUpperCase().includes(name.toUpperCase())
-  })
+  const FilterCharacters = characters
+    .filter(character => {
+      return character.name.toUpperCase().includes(name.toUpperCase())
+    })
 
   const renderCharacterDetails = props => {
     const id = parseInt(props.match.params.id);
@@ -40,7 +42,7 @@ function App() {
           <Header />
           <main className="main">
             <Filter handleFilter={handleFilter} name={name} />
-            <CharacterList characters={FilterCharacters} />
+            <CharacterList characters={FilterCharacters} name={name} />
           </main>
         </div>
       </Route>
