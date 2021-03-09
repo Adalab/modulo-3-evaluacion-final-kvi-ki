@@ -7,6 +7,7 @@ const CharacterCard = props => {
             <img src={props.character.image} className="list__element--image" alt={`Photo of ${props.character.name}`} />
             <h4 className="list__element--name">{props.character.name}</h4>
             <p className="list__element--text">{props.character.species}</p>
+            <p className="list__element--text">{props.character.type}</p>
         </Link>
     )
 }

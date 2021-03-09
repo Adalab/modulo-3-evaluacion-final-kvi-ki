@@ -10,6 +10,7 @@ import getDataFromApi from '../services/getDataFromApi';
 function App() {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState('');
+  const [type, setType] = useState('');
 
   useEffect(() => {
     getDataFromApi().then(data =>
@@ -20,11 +21,17 @@ function App() {
     if (searchField.key === 'name') {
       return setName(searchField.value);
     }
+    else if (searchField.key === 'type') {
+      return setType(searchField.value);
+    }
   }
 
   const FilterCharacters = characters
     .filter(character => {
       return character.name.toUpperCase().includes(name.toUpperCase())
+    })
+    .filter(character => {
+      return character.type.toUpperCase().includes(type.toUpperCase())
     })
 
   const renderCharacterDetails = props => {
@@ -41,7 +48,7 @@ function App() {
         <div className="page">
           <Header />
           <main className="main">
-            <Filter handleFilter={handleFilter} name={name} />
+            <Filter handleFilter={handleFilter} name={name} type={type} />
             <CharacterList characters={FilterCharacters} name={name} />
           </main>
         </div>

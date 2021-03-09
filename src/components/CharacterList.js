@@ -1,6 +1,5 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
-import Filter from './Filter';
 
 const CharacterList = props => {
     console.log(props)
